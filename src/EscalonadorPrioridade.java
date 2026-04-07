@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class EscalonadorSRT {
-
+public class EscalonadorPrioridade {
     ArrayList<Processo> listaProcessos = new ArrayList<>();
 
     public void adicionarProcesso(String nome, int tempoChegada, int tempoExecucao, int prioridade) {
