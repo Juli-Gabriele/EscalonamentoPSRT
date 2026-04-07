@@ -46,13 +46,7 @@ public class EscalonadorPrioridade {
             escolhido.tempoRestante--;  //executa apenas 1 unidade de tempo (escalom preemptivo)
             tempoAtual++; //relógio avança
 
-        for (Processo atual : listaProcessos) {
-            if (atual.tempoChegada <= tempoAtual) {
-                if (atual.tempoExecucao < menorExecucao) {
-                    menorExecucao = atual.tempoExecucao;
-                }
-            }
-        }
+            //logo depois, venhamos c um for para atualizar tempos de espera de quem não rodou ainda p não acontecer a inanição
 
         ArrayList<Integer> possiveis = new ArrayList<>();
 
