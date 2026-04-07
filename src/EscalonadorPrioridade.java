@@ -3,6 +3,7 @@ import java.util.Random;
 
 public class EscalonadorPrioridade {
     ArrayList<Processo> listaProcessos = new ArrayList<>();
+    Prioridades controlador = new Prioridades();
 
     public void adicionarProcesso(String nome, int tempoChegada, int tempoExecucao, int prioridade) {
         listaProcessos.add(new Processo(nome, tempoChegada, tempoExecucao, prioridade));
