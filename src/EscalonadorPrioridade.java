@@ -35,7 +35,7 @@ public class EscalonadorPrioridade {
 
             prontos.sort((p1, p2) -> Integer.compare(p2.prioridadeAtual, p1.prioridadeAtual));
 
-            menor.tempoExecucao--;
+            //esse mét sort pega dois processos por vez ai: dados dois processos p1 e p2, então compare as suas prioridades, ordem decrescente pq queremos o maior entre eles,
 
             if (menor.tempoExecucao <= 0) {
                 listaProcessos.remove(index);
