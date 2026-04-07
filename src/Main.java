@@ -1,6 +1,6 @@
 
 void main() {
-    EscalonadorSRT escalonador = new EscalonadorSRT();
+    /*EscalonadorSRT escalonador = new EscalonadorSRT();
 
     // Adicionei o Menu deixado Comentado essa Parte Para Futuros Testes;
 
