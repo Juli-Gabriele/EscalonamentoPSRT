@@ -53,8 +53,7 @@ public class EscalonadorPrioridade {
 
                 //ou seja, soma 1 no seu tempo de espera p que no próximo ciclo, a prioridadeAtual dele seja maior por causa desse +1
 
-            if (p.tempoChegada <= tempoAtual && p.tempoExecucao == menorExecucao) {
-                possiveis.add(i);
+                else p.tempoEspera = 0; // zera a espera de quem acabou de usar a cpu p que não continue acumulando priori infinita e deixe os outros "morrerem de fome"
             }
         }
 
