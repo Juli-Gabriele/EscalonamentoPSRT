@@ -29,7 +29,7 @@ public class EscalonadorPrioridade {
 
             String estado = controlador.avaliarSistema(prontos); //retorna o estado dos prontos
 
-            int menorExecucao = listaProcessos.get(indexEscolhido).tempoExecucao;
+            controlador.aplicarAging(prontos, estado); //implementa o aging e atualiza prioridades baseado no tempo de espera e estado
 
             if (anterior != null && anterior.tempoExecucao == menorExecucao) {
                 menor = anterior;
