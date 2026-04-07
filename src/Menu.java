@@ -24,7 +24,7 @@ public class Menu {
 
             sc.nextLine();
 
-            ec.adicionarProcesso(nome, tempoC, tempoEx);
+            ec.adicionarProcesso(nome, tempoC, tempoEx, prio);
             System.out.println("Processo '" + nome + "' adicionado com sucesso!\n");
             System.out.print("Deseja adicionar outro Processo? [S/N]: ");
             opcao = sc.nextLine();
