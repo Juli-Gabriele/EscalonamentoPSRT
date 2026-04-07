@@ -39,9 +39,9 @@ public class EscalonadorPrioridade {
 
             Processo escolhido = prontos.get(0); //após o aterior, pegamos o pronto do ind 0 e colocamos em "processo escolhido"
 
-            tempoAtual++;
-        }
-    }
+            // executando por tempo: 1 unidade
+            System.out.println("[T:" + tempoAtual + "] CPU: " + escolhido.nome +
+                    " | Prio Atual: " + escolhido.prioridadeAtual + " | Est: " + estado);
 
     public int escolherProcesso(int tempoAtual) {
         int menorExecucao = Integer.MAX_VALUE;
