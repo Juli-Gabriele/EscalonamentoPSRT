@@ -55,7 +55,11 @@ public class EscalonadorPrioridade {
 
                 else p.tempoEspera = 0; // zera a espera de quem acabou de usar a cpu p que não continue acumulando priori infinita e deixe os outros "morrerem de fome"
             }
-        }
+
+            if (escolhido.tempoRestante <= 0) {
+                listaProcessos.remove(escolhido);
+                System.out.println(">>> Processo " + escolhido.nome + " finalizado.");
+            }
 
         if (possiveis.isEmpty()) {
             return -1;
