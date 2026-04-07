@@ -27,8 +27,7 @@ public class EscalonadorPrioridade {
                 continue;
             }
 
-            Processo menor;
-            int index;
+            String estado = controlador.avaliarSistema(prontos); //retorna o estado dos prontos
 
             int menorExecucao = listaProcessos.get(indexEscolhido).tempoExecucao;
 
