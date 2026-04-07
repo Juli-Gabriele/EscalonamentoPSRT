@@ -4,7 +4,7 @@ public class Menu {
 
     public void iniciar() {
         Scanner sc = new Scanner(System.in);
-        EscalonadorSRT ec = new EscalonadorSRT();
+        EscalonadorPrioridade ec = new EscalonadorPrioridade();
         String opcao;
 
         System.out.println("******** GERENCIADOR DE PROCESSOS ********\n");
