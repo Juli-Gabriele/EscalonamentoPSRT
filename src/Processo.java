@@ -7,7 +7,9 @@ class Processo {
     int tempoExecucao;
     int tempoChegada;
     int tempoRestante; // p controlar quanto falta para acabar na cpu
-    int prioridade;    // p usar no algorit de priorid.
+    int prioridadeOriginal; // que o usuário digitou
+    int prioridadeAtual;    // que vai mudar com o tempo (aging)
+    int tempoEspera;        // contador de ciclos na fila de prontos
 
     public Processo(String nome, int tempoChegada, int tempoExecucao) {
         this.nome = nome;
