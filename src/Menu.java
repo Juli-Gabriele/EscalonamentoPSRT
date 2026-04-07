@@ -37,6 +37,6 @@ public class Menu {
 
         /*
         ec.imprimirResultado();
-        sc.close();
+        sc.close();*/
     }
 }
