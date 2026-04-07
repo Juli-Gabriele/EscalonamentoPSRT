@@ -15,5 +15,9 @@ class Processo {
         this.nome = nome;
         this.tempoChegada = tempoChegada;
         this.tempoExecucao = tempoExecucao;
+        this.tempoRestante = tempoExecucao;
+        this.prioridadeOriginal = prioridade;
+        this.prioridadeAtual = prioridade; // começa igual à original
+        this.tempoEspera = 0;
     }
 }
