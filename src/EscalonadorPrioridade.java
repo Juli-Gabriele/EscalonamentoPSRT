@@ -31,13 +31,7 @@ public class EscalonadorPrioridade {
 
             controlador.aplicarAging(prontos, estado); //implementa o aging e atualiza prioridades baseado no tempo de espera e estado
 
-            if (anterior != null && anterior.tempoExecucao == menorExecucao) {
-                menor = anterior;
-                index = indexAt;
-            } else {
-                menor = listaProcessos.get(indexEscolhido);
-                index = indexEscolhido;
-            }
+            // quem tem a MAIOR prioridade atual?
 
             System.out.print(menor.nome + " " + menor.tempoChegada + " " + menor.tempoExecucao + " // ");
 
