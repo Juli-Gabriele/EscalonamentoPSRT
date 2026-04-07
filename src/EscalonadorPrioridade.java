@@ -61,9 +61,9 @@ public class EscalonadorPrioridade {
                 System.out.println(">>> Processo " + escolhido.nome + " finalizado.");
             }
 
-        if (possiveis.isEmpty()) {
-            return -1;
-        }
+            //esse último if é p encerrar o while: se o tempoRestante chegou a 0, ele é removido da listaProcessos definitiva, senão ele continua na lista e participará da próxima rodada de sorteio/ordenação no próximo while
+
+            //agora acho que falta arrumar as saídas de acordo com o trabalho e as entradas tbm
 
         Random rand = new Random();
         return possiveis.get(rand.nextInt(possiveis.size()));
