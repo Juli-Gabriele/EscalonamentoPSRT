@@ -18,7 +18,11 @@ public class EscalonadorPrioridade {
             // verifica quem já chegou
             ArrayList<Processo> prontos = new ArrayList<>();
 
-            if (indexEscolhido == -1) {
+            for (Processo p : listaProcessos) {
+                if (p.tempoChegada <= tempoAtual) prontos.add(p); //só entra na fila de prontos quem já chegou
+            }
+
+            if (prontos.isEmpty()) {
                 tempoAtual++;
                 continue;
             }
