@@ -48,7 +48,8 @@ public class EscalonadorPrioridade {
 
             //logo depois, venhamos c um for para atualizar tempos de espera de quem não rodou ainda p não acontecer a inanição
 
-        ArrayList<Integer> possiveis = new ArrayList<>();
+            for (Processo p : prontos) {
+                if (p != escolhido) p.tempoEspera++;
 
         for (int i = 0; i < listaProcessos.size(); i++) {
             Processo p = listaProcessos.get(i);
