@@ -19,6 +19,9 @@ public class Menu {
             System.out.print("Digite o Tempo de Execução do Processo: ");
             int tempoEx = sc.nextInt();
 
+            System.out.print("Digite a Prioridade: ");
+            int prio = sc.nextInt();
+
             sc.nextLine();
 
             ec.adicionarProcesso(nome, tempoC, tempoEx);
