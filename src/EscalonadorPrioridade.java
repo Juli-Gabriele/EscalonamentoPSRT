@@ -15,7 +15,8 @@ public class EscalonadorPrioridade {
 
         while (!listaProcessos.isEmpty()) {
 
-            int indexEscolhido = escolherProcesso(tempoAtual);
+            // verifica quem já chegou
+            ArrayList<Processo> prontos = new ArrayList<>();
 
             if (indexEscolhido == -1) {
                 tempoAtual++;
