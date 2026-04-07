@@ -43,8 +43,8 @@ public class EscalonadorPrioridade {
             System.out.println("[T:" + tempoAtual + "] CPU: " + escolhido.nome +
                     " | Prio Atual: " + escolhido.prioridadeAtual + " | Est: " + estado);
 
-    public int escolherProcesso(int tempoAtual) {
-        int menorExecucao = Integer.MAX_VALUE;
+            escolhido.tempoRestante--;  //executa apenas 1 unidade de tempo (escalom preemptivo)
+            tempoAtual++; //relógio avança
 
         for (Processo atual : listaProcessos) {
             if (atual.tempoChegada <= tempoAtual) {
