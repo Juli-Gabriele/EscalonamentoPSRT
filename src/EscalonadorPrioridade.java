@@ -9,8 +9,7 @@ public class EscalonadorPrioridade {
         listaProcessos.add(new Processo(nome, tempoChegada, tempoExecucao, prioridade));
     }
 
-    public void imprimirResultado() {
-
+    public void executar() {
         int tempoAtual = 0;
         Processo anterior = null;
         int indexAt = -1;
