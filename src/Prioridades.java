@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Prioridades {
 
     // calculando o "estado de estresse" baseado na espera dos processos
