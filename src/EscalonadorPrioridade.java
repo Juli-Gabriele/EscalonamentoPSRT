@@ -65,8 +65,6 @@ public class EscalonadorPrioridade {
 
             //agora acho que falta arrumar as saídas de acordo com o trabalho e as entradas tbm
 
-        Random rand = new Random();
-        return possiveis.get(rand.nextInt(possiveis.size()));
+        }
     }
-
 }
