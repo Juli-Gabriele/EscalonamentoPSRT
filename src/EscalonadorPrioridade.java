@@ -51,8 +51,7 @@ public class EscalonadorPrioridade {
             for (Processo p : prontos) {
                 if (p != escolhido) p.tempoEspera++;
 
-        for (int i = 0; i < listaProcessos.size(); i++) {
-            Processo p = listaProcessos.get(i);
+                //ou seja, soma 1 no seu tempo de espera p que no próximo ciclo, a prioridadeAtual dele seja maior por causa desse +1
 
             if (p.tempoChegada <= tempoAtual && p.tempoExecucao == menorExecucao) {
                 possiveis.add(i);
