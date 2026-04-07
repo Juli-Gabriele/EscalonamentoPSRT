@@ -11,8 +11,7 @@ public class EscalonadorPrioridade {
 
     public void executar() {
         int tempoAtual = 0;
-        Processo anterior = null;
-        int indexAt = -1;
+        System.out.println("\n--- INICIANDO ESCALONAMENTO POR PRIORIDADE ---");
 
         while (!listaProcessos.isEmpty()) {
 
