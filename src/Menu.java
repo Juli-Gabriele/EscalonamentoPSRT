@@ -33,7 +33,9 @@ public class Menu {
         } while (opcao.equalsIgnoreCase("s"));
 
         System.out.println("Todos os processos foram adicionados!");
-        System.out.println("Iniciando escalonamento SRT");
+        System.out.println("Iniciando escalonamento por prioridades");
+
+        /*
         ec.imprimirResultado();
         sc.close();
     }
