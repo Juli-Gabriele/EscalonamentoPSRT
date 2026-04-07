@@ -33,7 +33,7 @@ public class EscalonadorPrioridade {
 
             // quem tem a MAIOR prioridade atual?
 
-            System.out.print(menor.nome + " " + menor.tempoChegada + " " + menor.tempoExecucao + " // ");
+            prontos.sort((p1, p2) -> Integer.compare(p2.prioridadeAtual, p1.prioridadeAtual));
 
             menor.tempoExecucao--;
 
