@@ -1,22 +1,17 @@
 
 void main() {
-    /*EscalonadorSRT escalonador = new EscalonadorSRT();
 
-    // Adicionei o Menu deixado Comentado essa Parte Para Futuros Testes;
+ EscalonadorPrioridade ep = new EscalonadorPrioridade();
+ Menu mu =  new Menu();
 
-    escalonador.adicionarProcesso("A", 0, 2);
-    escalonador.adicionarProcesso("B", 0, 2);
-    escalonador.adicionarProcesso("C", 0, 2);
-    escalonador.adicionarProcesso("D", 0, 2);
+ mu.iniciar();
 
-    escalonador.imprimirResultado();
+ /*ep.adicionarProcesso("A", 0, 4, 1);
+ ep.adicionarProcesso("B", 1, 3, 2);
+ ep.adicionarProcesso("C", 2, 2, 3);
 
-
-    Menu menu = new Menu();
-    menu.iniciar();*/
+ep.executar();*/
 
 
-
-    //idjbjfhbhjbcgcuyebjhfvt
 
 }

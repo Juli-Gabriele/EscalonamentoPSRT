@@ -11,6 +11,7 @@ public class EscalonadorPrioridade {
 
     public void executar() {
         int tempoAtual = 0;
+        ArrayList<String> linhaTempo = new ArrayList<>();
         System.out.println("\n--- INICIANDO ESCALONAMENTO POR PRIORIDADE ---");
 
         while (!listaProcessos.isEmpty()) {
@@ -23,6 +24,7 @@ public class EscalonadorPrioridade {
             }
 
             if (prontos.isEmpty()) {
+                linhaTempo.add("*");
                 tempoAtual++;
                 continue;
             }
@@ -40,9 +42,7 @@ public class EscalonadorPrioridade {
             Processo escolhido = prontos.get(0); //após o aterior, pegamos o pronto do ind 0 e colocamos em "processo escolhido"
 
             // executando por tempo: 1 unidade
-            System.out.println("[T:" + tempoAtual + "] CPU: " + escolhido.nome +
-                    " | Prio Atual: " + escolhido.prioridadeAtual + " | Est: " + estado);
-
+            linhaTempo.add(escolhido.nome);
             escolhido.tempoRestante--;  //executa apenas 1 unidade de tempo (escalom preemptivo)
             tempoAtual++; //relógio avança
 
@@ -61,10 +61,24 @@ public class EscalonadorPrioridade {
                 System.out.println(">>> Processo " + escolhido.nome + " finalizado.");
             }
 
-            //esse último if é p encerrar o while: se o tempoRestante chegou a 0, ele é removido da listaProcessos definitiva, senão ele continua na lista e participará da próxima rodada de sorteio/ordenação no próximo while
-
-            //agora acho que falta arrumar as saídas de acordo com o trabalho e as entradas tbm
 
         }
+         imprimirTabela(linhaTempo);
+    }
+    public void imprimirTabela(ArrayList<String> linhaTempo) {
+
+        System.out.println("\nTEMPO");
+
+        for (int i = 0; i < linhaTempo.size(); i++) {
+            System.out.print(i + " | ");
+        }
+
+        System.out.println("\n--------------------------------------------------");
+
+        for (String p : linhaTempo) {
+            System.out.print(p + " | ");
+        }
+
+        System.out.println("\nPROCESSOS");
     }
 }
