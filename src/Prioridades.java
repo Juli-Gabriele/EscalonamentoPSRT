@@ -2,8 +2,9 @@ import java.util.ArrayList;
 
 public class Prioridades {
 
-    // calculando o "estado de estresse" baseado na espera dos processos
+    // Calcula o estado do sistema com base no tempo médio de espera dos processos
     public String avaliarSistema(ArrayList<Processo> processos) {
+
         if (processos.isEmpty()) return "CALMA";
 
         double soma = 0;
@@ -14,31 +15,29 @@ public class Prioridades {
 
         double mediaEspera = soma / processos.size();
 
-        if (mediaEspera > 5) return "FRUSTRAÇÃO"; // se, em média, os processos estão esperando há mais de 5 ciclos de cpu, o sistema deve entender que a fila está andando devagar demais, o 5 é só p regra de negócio
-
-        // no caso de frustação, o aging precisa ser agressivo
+        // Se a média de espera for alta, o sistema entra em FRUSTRAÇÃO
+        if (mediaEspera > 2) return "FRUSTRAÇÃO";
 
         return "NORMAL";
     }
 
-    // aplicando o aging (dinâmico), ou seja, ele vai mudar conforme o estado do sistema
+    // Aplica o aging ajustando a prioridade com base no tempo de espera
+    public void aplicarAging(ArrayList<Processo> processos, String estado,
+                             int bonusNormal, int bonusFrustracao) {
 
-    public void aplicarAging(ArrayList<Processo> processos, String estado) {
         for (Processo p : processos) {
 
             int bonusEstado;
 
-            //esse bônus existe para fazer o sistema reagir quando a fila começa a ficar lenta, ai esse 2 é p "acelerar" a prioridade quando detecta lentidão e o 1 é p funcionamento normal
-
+            // Define o impacto do aging dependendo do estado do sistema
             if (estado.equals("FRUSTRAÇÃO")) {
-                bonusEstado = 2;
+                bonusEstado = bonusFrustracao;
             } else {
-                bonusEstado = 1; }
+                bonusEstado = bonusNormal;
+            }
 
+            // Atualiza a prioridade dinâmica
             p.prioridadeAtual = p.prioridadeOriginal + (p.tempoEspera * bonusEstado);
-
-            //nisso, a cada ciclo, a prioridade atual sobe e quanto mais tempo espera, maior a prioridadeAtual fica
         }
     }
-
 }

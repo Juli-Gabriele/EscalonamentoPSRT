@@ -2,15 +2,22 @@ import java.util.Scanner;
 
 public class Menu {
 
+    int bonusNormal;
+    int bonusFrustracao;
+
     Scanner sc = new Scanner(System.in);
 
-    EscalonadorPrioridade ep = new EscalonadorPrioridade();
     String opcao;
     int tempoC, tempoEx, prioridade;
 
     public void iniciar() {
 
         System.out.println("******** ESCALONADOR POR PRIORIDADE ********\n");
+
+        bonusNormal = lerBonus("Digite o bônus para estado NORMAL: ");
+        bonusFrustracao = lerBonus("Digite o bônus para estado FRUSTRAÇÃO: ");
+
+        EscalonadorPrioridade ep = new EscalonadorPrioridade(bonusNormal, bonusFrustracao);
 
         do {
             System.out.print("Digite o nome do Processo: ");
@@ -20,7 +27,7 @@ public class Menu {
             VerificarTempoDeExecucao();
             VerificarPrioridade();
 
-              ep.adicionarProcesso(nome, tempoC, tempoEx, prioridade);
+            ep.adicionarProcesso(nome, tempoC, tempoEx, prioridade);
 
             System.out.println("Processo '" + nome + "' adicionado com sucesso!\n");
 
@@ -34,11 +41,10 @@ public class Menu {
         System.out.println("Iniciando escalonamento por PRIORIDADE...");
         System.out.println("**Imprimindo Tabela de Execução**");
 
-         ep.executar();
+        ep.executar();
 
         sc.close();
     }
-
     public void VerificarTempoDeChegada() {
 
         while (true) {
@@ -100,6 +106,23 @@ public class Menu {
             } else {
                 System.out.println("A prioridade não pode ser negativa!");
             }
+        }
+    }
+    public int lerBonus(String mensagem) {
+        while (true) {
+            System.out.print(mensagem);
+
+            while (!sc.hasNextInt()) {
+                System.out.println("Digite um número válido!");
+                sc.next();
+            }
+
+            int valor = sc.nextInt();
+            sc.nextLine();
+
+            if (valor >= 0) return valor;
+
+            System.out.println("Não pode ser negativo!");
         }
     }
 }
