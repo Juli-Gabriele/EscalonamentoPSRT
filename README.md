@@ -1,4 +1,6 @@
-﻿### 1. Estrutura de Dados e Configuração de Bônus
+
+ # 📊 Escalonador de Processos — Algoritmo de Prioridade Dinâmica (Aging)
+ ### 1. Estrutura de Dados e Configuração de Bônus
 
 Diferente do escalonador anterior, este sistema utiliza um esquema de **Prioridades Dinâmicas**. Ele permite configurar bônus que podem ser aplicados aos processos para evitar que tarefas com baixa prioridade fiquem "esquecidas" na fila (problema conhecido como *starvation*).
 
