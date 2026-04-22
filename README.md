@@ -13,7 +13,7 @@ Diferente do escalonador anterior, este sistema utiliza um esquema de **Priorida
 * **Controlador de Prioridades**: O código utiliza uma classe auxiliar chamada `Prioridades` para gerenciar as regras de precedência.
 * **Sobrecarga de Construtores**: A classe permite ser iniciada com valores de bônus customizados ou com valores padrão, conferindo flexibilidade ao simulador.
 * **`adicionarProcesso()`**: Além do tempo de chegada e execução, este método agora recebe o parâmetro **Prioridade**, essencial para a lógica deste algoritmo.
-  ### 2. Gerenciamento da Fila de Prontos e Ociosidade
+### 2. Gerenciamento da Fila de Prontos e Ociosidade
 
 O método `executar` é o motor do escalonador. Antes de aplicar qualquer regra de prioridade, o sistema precisa identificar quais processos estão aptos a usar a CPU no momento atual.
 
@@ -85,17 +85,16 @@ O método `aplicarAging` é responsável por recalcular a prioridade de cada pro
 A classe `Processo` é a base (POJO - Plain Old Java Object) do simulador. Ela armazena tanto os dados estáticos fornecidos pelo usuário quanto os dados dinâmicos calculados pelo escalonador durante a execução.
 
 
-<img width="905" height="647" alt="image" src="https://github.com/user-attachments/assets/6c7aee68-789e-4581-9c87-32fb737ac8d6" />
+<img width="1130" height="469" alt="image" src="https://github.com/user-attachments/assets/9851526f-e65e-4db0-b189-fc4f677c4a0f" />
+
 
 #### Explicação Técnica dos Atributos:
 * **Dados de Entrada**:
     * `nome`: Identificador do processo.
     * `tempoChegada`: Momento em que o processo entra no sistema.
-    * `tempoExecucao`: Tempo total necessário de CPU.
-    * `prioridadeOriginal`: A prioridade definida pelo usuário no início.
+    * `tempoExecucao`: Tempo total de CPU requerido pelo processo, reduzido progressivamente a cada execução.
+    * `prioridade`: Nível de prioridade do processo no sistema, ajustado a cada execução com base no bônus do usuário.
 * **Dados de Controle (Dinâmicos)**:
-    * `tempoRestante`: Utilizado pelo **SRT** para saber quanto falta para terminar e decidir a preempção.
-    * `prioridadeAtual`: Utilizada pelo **Escalonador de Prioridade** para aplicar o *Aging*. Ela muda conforme o bônus é aplicado.
     * `tempoEspera`: Contador de quanto tempo o processo ficou na fila de prontos sem executar, essencial para o cálculo de frustração do sistema.
 
     ### 8. Configuração de Parâmetros de Escalonamento
