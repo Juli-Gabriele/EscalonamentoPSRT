@@ -57,15 +57,14 @@ public class EscalonadorPrioridade {
             controlador.aplicarAging(prontos, estado, bonusNormal, bonusFrustracao);
 
             // Ordena por maior prioridade atual
-            prontos.sort((p1, p2) ->
-                    Integer.compare(p2.prioridadeAtual, p1.prioridadeAtual));
+            prontos.sort((p1, p2) -> Integer.compare(p2.prioridade, p1.prioridade));
 
             // Seleciona o processo com maior prioridade
-            Processo escolhido = prontos.get(0);
+            Processo escolhido = prontos.getFirst();
 
             // Executa 1 unidade de tempo (escalonamento preemptivo)
             linhaTempo.add(escolhido.nome);
-            escolhido.tempoRestante--;
+            escolhido.tempoExecucao--;
             tempoAtual++;
 
             // Atualiza tempo de espera dos demais processos
@@ -78,7 +77,7 @@ public class EscalonadorPrioridade {
             }
 
             // Remove processo finalizado
-            if (escolhido.tempoRestante <= 0) {
+            if (escolhido.tempoExecucao <= 0) {
                 listaProcessos.remove(escolhido);
                 System.out.println(">>> Processo " + escolhido.nome + " finalizado.");
             }

@@ -16,7 +16,7 @@ public class Prioridades {
         double mediaEspera = soma / processos.size();
 
         // Se a média de espera for alta, o sistema entra em FRUSTRAÇÃO
-        if (mediaEspera > 2) return "FRUSTRAÇÃO";
+        if (mediaEspera > 3) return "FRUSTRAÇÃO";
 
         return "NORMAL";
     }
@@ -37,7 +37,7 @@ public class Prioridades {
             }
 
             // Atualiza a prioridade dinâmica
-            p.prioridadeAtual = p.prioridadeOriginal + (p.tempoEspera * bonusEstado);
+            p.prioridade += (p.tempoEspera * bonusEstado);
         }
     }
 }
