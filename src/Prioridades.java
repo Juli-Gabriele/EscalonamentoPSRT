@@ -16,7 +16,7 @@ public class Prioridades {
         double mediaEspera = soma / processos.size();
 
         // Se a média de espera for alta, o sistema entra em FRUSTRAÇÃO
-        if (mediaEspera > 3) return "FRUSTRAÇÃO";
+        if (mediaEspera > 2) return "FRUSTRAÇÃO";
 
         return "NORMAL";
     }

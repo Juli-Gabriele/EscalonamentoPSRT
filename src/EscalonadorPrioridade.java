@@ -57,7 +57,8 @@ public class EscalonadorPrioridade {
             controlador.aplicarAging(prontos, estado, bonusNormal, bonusFrustracao);
 
             // Ordena por maior prioridade atual
-            prontos.sort((p1, p2) -> Integer.compare(p2.prioridade, p1.prioridade));
+            prontos.sort((p1, p2) ->
+                    Integer.compare(p2.prioridade, p1.prioridade));
 
             // Seleciona o processo com maior prioridade
             Processo escolhido = prontos.getFirst();
