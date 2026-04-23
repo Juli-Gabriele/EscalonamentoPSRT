@@ -7,6 +7,7 @@ class Processo {
     int tempoExecucao;
     int tempoChegada;
     int prioridade;// que o usuário digitou
+    int prioridadeDinamica = prioridade;
     int tempoEspera;// contador de ciclos na fila de prontos
 
     public Processo(String nome, int tempoChegada, int tempoExecucao, int prioridade) {

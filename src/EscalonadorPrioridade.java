@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class EscalonadorPrioridade {
 
@@ -22,6 +23,8 @@ public class EscalonadorPrioridade {
     public void adicionarProcesso(String nome, int tempoChegada, int tempoExecucao, int prioridade) {
         listaProcessos.add(new Processo(nome, tempoChegada, tempoExecucao, prioridade));
     }
+
+    Random rand = new Random();
 
     public void executar() {
 
@@ -50,18 +53,29 @@ public class EscalonadorPrioridade {
                 continue;
             }
 
-            // Avalia o estado do sistema (NORMAL ou FRUSTRAÇÃO)
-            String estado = controlador.avaliarSistema(prontos);
-
             // Aplica aging ajustando prioridade dinâmica
-            controlador.aplicarAging(prontos, estado, bonusNormal, bonusFrustracao);
+            controlador.aplicarAging(prontos, bonusNormal, bonusFrustracao);
 
             // Ordena por maior prioridade atual
             prontos.sort((p1, p2) ->
-                    Integer.compare(p2.prioridade, p1.prioridade));
+                    Integer.compare(p2.prioridadeDinamica, p1.prioridadeDinamica));
 
-            // Seleciona o processo com maior prioridade
-            Processo escolhido = prontos.getFirst();
+            // pega a maior prioridade
+            int maior = prontos.get(0).prioridadeDinamica;
+
+            // filtra os empatados no topo
+            ArrayList<Processo> empatados = new ArrayList<>();
+            for (Processo p : prontos) {
+                if (p.prioridadeDinamica == maior) {
+                    empatados.add(p);
+                } else {
+                    break; // já que tá ordenado, pode parar
+                }
+            }
+
+            // sorteia um entre os melhores
+            Processo escolhido = empatados.get(rand.nextInt(empatados.size()));
+
 
             // Executa 1 unidade de tempo (escalonamento preemptivo)
             linhaTempo.add(escolhido.nome);
@@ -73,7 +87,8 @@ public class EscalonadorPrioridade {
                 if (p != escolhido) {
                     p.tempoEspera++;
                 } else {
-                    p.tempoEspera = 0;
+                    int penalidade = (p.tempoEspera > 3) ? 2 : 1;
+                    p.tempoEspera = Math.max(0, p.tempoEspera - penalidade);
                 }
             }
 
